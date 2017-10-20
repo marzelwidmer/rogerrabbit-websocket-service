@@ -12,16 +12,16 @@ import org.springframework.context.annotation.Bean;
  * Created by marcelwidmer on 04/07/16.
  */
 @SpringBootApplication
-public class RogerRabbitService {
+public class RogerRabbitSocketService {
 
     PersonService personService;
 
-    public RogerRabbitService(PersonService personService) {
+    public RogerRabbitSocketService(PersonService personService) {
         this.personService = personService;
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(RogerRabbitService.class, args);
+        SpringApplication.run(RogerRabbitSocketService.class, args);
     }
 
 
