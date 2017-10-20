@@ -1,4 +1,4 @@
-package ch.keepcalm.microservice.websocket.resource.hello;
+package ch.keepcalm.microservice.websocket.resource.greetings;
 
 import lombok.*;
 

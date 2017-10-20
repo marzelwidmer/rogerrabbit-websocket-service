@@ -21,7 +21,7 @@ public class ApiController {
     public ResourceSupport api() {
         ResourceSupport resourceSupport = new ResourceSupport();
         resourceSupport.add(linkTo(methodOn(ApiController.class).api()).withSelfRel());
-        resourceSupport.add(linkTo(methodOn(ApiController.class).api()).slash("hello.html").withRel("hello"));
+        resourceSupport.add(linkTo(methodOn(ApiController.class).api()).slash("greetings/greetingsWebsocket.html").withRel("greetings-websocket"));
         resourceSupport.add(linkTo(methodOn(PersonController.class).getPersons()).withRel("persons"));
         resourceSupport.add(linkTo(ApiController.class).slash("/manage").slash("/docs/manual.html").withRel("documentation"));
 
