@@ -1,0 +1,37 @@
+# Spring
+spring:
+  profiles:
+    active: local
+  application:
+    name: @project.name@
+  messages:
+    basename: i18n/messages
+    cache-seconds: -1
+    encoding: UTF-8
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  thymeleaf:
+    check-template: false
+    reactive:
+      max-chunk-size: 8192
+
+# Server
+server:
+ port: 0
+ address: localhost
+# Logging
+logging:
+  path: log/
+# Infos Build
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+# Actuator
+endpoints:
+  default:
+    web:
+      enabled: true
