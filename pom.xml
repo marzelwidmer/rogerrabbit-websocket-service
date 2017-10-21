@@ -43,6 +43,7 @@
         <jquery.version>3.1.1</jquery.version>
         <sockjs-client.version>1.0.2</sockjs-client.version>
         <stomp-websocket.version>2.3.3</stomp-websocket.version>
+        <datatables.version>1.10.12</datatables.version>
     </properties>
 
     <dependencies>
@@ -69,6 +70,10 @@
         </dependency>
         <!-- Frontend -->
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
         </dependency>
@@ -91,6 +96,12 @@
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
             <version>${jquery.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars/datatables -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>datatables</artifactId>
+            <version>${datatables.version}</version>
         </dependency>
 
         <!-- h2 database-->
