@@ -7,6 +7,7 @@ import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,13 +18,15 @@ import java.util.List;
 @Slf4j
 public class PersonController {
 
+    SimpMessagingTemplate simpMessagingTemplate;
     PersonService personService;
     PersonResourceAssembler personResourceAssembler;
 
     @Autowired
-    public PersonController(PersonService personService, PersonResourceAssembler personResourceAssembler) {
+    public PersonController(PersonService personService, PersonResourceAssembler personResourceAssembler, SimpMessagingTemplate simpMessagingTemplate) {
         this.personService = personService;
         this.personResourceAssembler = personResourceAssembler;
+        this.simpMessagingTemplate = simpMessagingTemplate;
     }
 
     @GetMapping
@@ -61,6 +64,7 @@ public class PersonController {
     @PostMapping(value = "/")
     public ResponseEntity<Resources<PersonResource>> createPerson(@RequestBody PersonResource personResource) {
         Person person = personService.save(personResourceAssembler.instantiateEntity(personResource));
+        this.simpMessagingTemplate.convertAndSend("/topic/persons", personResource);
 
         return new ResponseEntity(personResourceAssembler.toResource(person, person.getId()), HttpStatus.CREATED);
     }

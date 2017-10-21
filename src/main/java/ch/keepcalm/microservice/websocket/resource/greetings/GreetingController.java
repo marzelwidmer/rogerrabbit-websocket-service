@@ -1,6 +1,7 @@
 package ch.keepcalm.microservice.websocket.resource.greetings;
 
 import ch.keepcalm.microservice.websocket.domain.Person;
+import ch.keepcalm.microservice.websocket.resource.person.PersonResource;
 import ch.keepcalm.microservice.websocket.resource.person.PersonResourceAssembler;
 import ch.keepcalm.microservice.websocket.resource.person.PersonService;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -29,8 +30,8 @@ public class GreetingController {
 
     @MessageMapping("/person/hello")
     @SendTo("/topic/persons")
-    public Person person(HelloMessage message) throws Exception {
-        Person personToSave = Person.builder().firstName(message.getName()).lastName("Alvarez").build();
+    public Person person(PersonResource personResource) throws Exception {
+        Person personToSave = Person.builder().firstName(personResource.getFirstName()).lastName("Alvarez").build();
         personService.save(personToSave);
 
 //        List<PersonResource> personResources = new ArrayList<>();
