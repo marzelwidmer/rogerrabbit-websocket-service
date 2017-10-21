@@ -33,8 +33,8 @@ public class ApiControllerDocumentation {
     private static final String PERSONS = "persons";
     private static final String PERSONS_DESCRIPTION = "The resource perons";
 
-    private static final String UI_GREETINGS_WEBSOCKETS = "ui-greetings-websocket";
-    private static final String UI_GREETINGS_WEBSOCKETS_DESCRIPTION = "Greetings Websocket";
+    private static final String UI_GREETINGS_WEBSOCKETS = "ui-ws-greetings";
+    private static final String UI_GREETINGS_WEBSOCKETS_DESCRIPTION = "Greetings Websocket UI";
 
     private static final String UI_PERSON = "ui-person";
     private static final String UI_PERSON_DESCRIPTION = "Person Web";
