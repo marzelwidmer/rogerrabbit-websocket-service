@@ -8,9 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class PersonWebController {
 
     PersonService personService;
+    PersonResourceAssembler personResourceAssembler;
 
-    public PersonWebController(PersonService personService) {
+    public PersonWebController(PersonService personService, PersonResourceAssembler personResourceAssembler) {
         this.personService = personService;
+        this.personResourceAssembler = personResourceAssembler;
     }
 
     @GetMapping("/person")

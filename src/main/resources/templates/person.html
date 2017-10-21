@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>WEBSOCKET-SERVICE</title>
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/webjars/datatables/1.10.12/css/jquery.dataTables.min.css">
@@ -15,22 +15,65 @@
         <!-- Header Table -->
         <thead>
         <tr>
-             <th>First Name</th>
+            <th>First Name</th>
             <th>Last Name</th>
         </tr>
         </thead>
         <!-- Footer Table -->
         <tfoot>
         <tr>
-             <th>First Name</th>
+            <th>First Name</th>
             <th>Last Name</th>
         </tr>
         </tfoot>
     </table>
+
+
+    <div id="main-content" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="connect">WebSocket connection:</label>
+                        <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                        <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="firstName">What is your first name?</label>
+                        <input type="text" id="firstName" class="form-control" placeholder="Your first name  here...">
+                    </div>
+                    <button id="send" class="btn btn-default" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="conversation" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Persons</th>
+                    </tr>
+                    </thead>
+                    <tbody id="persons">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
 <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/webjars/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
 <script src="/js/datatable.js"></script>
+<script src="/js/websockets.js"></script>
 </body>
 </html>
