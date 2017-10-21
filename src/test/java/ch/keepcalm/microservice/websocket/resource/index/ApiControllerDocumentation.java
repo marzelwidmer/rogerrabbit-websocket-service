@@ -33,8 +33,11 @@ public class ApiControllerDocumentation {
     private static final String PERSONS = "persons";
     private static final String PERSONS_DESCRIPTION = "The resource perons";
 
-    private static final String GREETINGS_WEBSOCKETS = "greetings-websocket";
-    private static final String GREETINGS_WEBSOCKETS_DESCRIPTION = "Greetings Websocket";
+    private static final String UI_GREETINGS_WEBSOCKETS = "ui-greetings-websocket";
+    private static final String UI_GREETINGS_WEBSOCKETS_DESCRIPTION = "Greetings Websocket";
+
+    private static final String UI_PERSON = "ui-person";
+    private static final String UI_PERSON_DESCRIPTION = "Person Web";
 
     private static final String DOCUMENTATION = "documentation";
     private static final String DOCUMENTATION_DESCRIPTION = "Documentation link";
@@ -57,7 +60,8 @@ public class ApiControllerDocumentation {
                         preprocessResponse(prettyPrint()),
                         links(halLinks(),
                                 linkWithRel(SELF).description(SELF_DESCRIPTION),
-                                linkWithRel(GREETINGS_WEBSOCKETS).description(GREETINGS_WEBSOCKETS_DESCRIPTION),
+                                linkWithRel(UI_GREETINGS_WEBSOCKETS).description(UI_GREETINGS_WEBSOCKETS_DESCRIPTION),
+                                linkWithRel(UI_PERSON).description(UI_PERSON_DESCRIPTION),
                                 linkWithRel(PERSONS).description(PERSONS_DESCRIPTION),
                                 linkWithRel(DOCUMENTATION).description(DOCUMENTATION_DESCRIPTION)
 
