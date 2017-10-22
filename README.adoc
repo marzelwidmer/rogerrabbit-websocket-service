@@ -1,0 +1,5 @@
+= POST (Create person)
+
+```
+curl -H "Content-Type: application/json" -X POST -d '{ "firstName": "Basco","lastName": "El bate" lhost:8080/persons/
+```
