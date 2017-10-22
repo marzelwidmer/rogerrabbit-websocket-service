@@ -9,9 +9,7 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/persons', function (person) {
-            console.log(person);
-            var contact = JSON.parse(person.body);
-            showPerson(contact.lastName);
+             showPerson(JSON.parse(person.body));
         });
     });
 }
@@ -28,8 +26,7 @@ function setConnected(connected) {
     }
     $("#persons").html("");
 }
-
-function showPerson(message) {
-    $("#persons").append("<tr><td>" + message + "</td></tr>");
-}
+function showPerson(data) {
+     $("#personsSocketTable").append("<tr><td>" + data.firstName + "</td><td>"+ data.lastName + "</td></tr>");
+ }
 
