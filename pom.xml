@@ -44,6 +44,10 @@
         <sockjs-client.version>1.0.2</sockjs-client.version>
         <stomp-websocket.version>2.3.3</stomp-websocket.version>
         <datatables.version>1.10.12</datatables.version>
+
+        <!-- docker -->
+        <docker.image.prefix>rogerrabbit</docker.image.prefix>
+        <docker-maven-plugin.version>0.4.10</docker-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -165,12 +169,10 @@
             <artifactId>spring-restdocs-mockmvc</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer</artifactId>
-            <version>5.5.1</version>
-        </dependency>
+
     </dependencies>
+
+
 
     <!-- Build -->
     <build>
@@ -313,6 +315,45 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+
+        <!-- Docker -->
+        <profile>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <id>docker</id>
+           <build>
+               <finalName>${project.name}</finalName>
+               <plugins>
+                   <plugin>
+                       <groupId>com.spotify</groupId>
+                       <artifactId>docker-maven-plugin</artifactId>
+                       <version>${docker-maven-plugin.version}</version>
+                       <configuration>
+                           <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                           <dockerDirectory>src/main/docker</dockerDirectory>
+                           <resources>
+                               <resource>
+                                   <targetPath>/</targetPath>
+                                   <directory>${project.build.directory}</directory>
+                                   <include>${project.build.finalName}.jar</include>
+                               </resource>
+                           </resources>
+                       </configuration>
+                       <executions>
+                           <execution>
+                               <id>default</id>
+                               <phase>install</phase>
+                               <goals>
+                                   <goal>build</goal>
+                                   <goal>push</goal>
+                               </goals>
+                           </execution>
+                       </executions>
+                   </plugin>
+               </plugins>
+           </build>
         </profile>
     </profiles>
 
