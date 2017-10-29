@@ -10,7 +10,7 @@ VOLUME /tmp
 ADD rogerrabbit-websocket-service.jar target/app.jar
 RUN sh -c 'touch target/app.jar'
 ENV JAVA_OPTS=""
-#EXPOSE 8080
+EXPOSE 8080
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Dspring.profiles.active=local -Djava.security.egd=file:/dev/./urandom -jar target/app.jar" ]
 #ENTRYPOINT ["java","-jar","-Dspring.profiles.active=local","target/app.jar"]
 
