@@ -46,7 +46,7 @@
         <datatables.version>1.10.12</datatables.version>
 
         <!-- docker -->
-        <docker.image.prefix>rogerrabbit</docker.image.prefix>
+        <docker.image.prefix>marzelwidmer</docker.image.prefix>
         <docker-maven-plugin.version>0.4.10</docker-maven-plugin.version>
     </properties>
 
